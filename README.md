@@ -1,3 +1,3 @@
 ## Ludum Dare 27
 
-All your Haxe belong to us!
+All your Haxe belongs to us!
