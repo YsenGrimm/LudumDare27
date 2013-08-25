@@ -16,6 +16,9 @@ class Player extends FlxSprite
 	{
 		super(x, y);
 		loadGraphic("assets/images/player.png", false, false, 16, 16, false);
+		//offset.x = 1;
+		//offset.y = 1;
+		//centerOffsets(true);
 		switch (direction) 
 		{
 			case 1:
@@ -30,8 +33,8 @@ class Player extends FlxSprite
 				angle = 0;
 		}
 		
-		acceleration.x = 30;
-		maxVelocity.x = 100;
+		velocity.x = 0;
+		velocity.y = 0;
 	}
 	
 	override public function update()

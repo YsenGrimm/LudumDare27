@@ -3,13 +3,15 @@ package ;
 import org.flixel.FlxG;
 import org.flixel.FlxSprite;
 import org.flixel.FlxTilemap;
+import org.flixel.plugin.photonstorm.FlxExtendedSprite;
 
 /**
  * ...
  * @author YsenGrimm
  */
-class MovementControl extends FlxSprite
+class MovementControl extends FlxExtendedSprite
 {
+	public var playingAnim: String;
 	public function new(x:Float = 0, y:Float = 0) 
 	{
 		super(x, y);
@@ -22,6 +24,8 @@ class MovementControl extends FlxSprite
 	
 	override public function update()
 	{
+		playingAnim = _curAnim.name;
 		super.update();
+		
 	}
 }
