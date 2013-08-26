@@ -89,7 +89,7 @@ class MenuState extends FlxState
 		#end
 		
 		readyTimer = 4.0;
-		gameTimer = 10.0;
+		gameTimer = 20.0;
 		placeTimer = 10.0;
 		placeAllowed = false; //movement Player
 		allowPlacing = false; //placement Movetiles
@@ -107,9 +107,9 @@ class MenuState extends FlxState
 				indLeftCount = 2;
 				indRightCount = 2;
 				playerStartAngle = 2;
-				playerStartSpeedX = 60;
+				playerStartSpeedX = 30;
 				playerStartSpeedY = 0;
-				playerSpeed = 60;
+				playerSpeed = 30;
 				playerStartPositionX = 96;
 				playerStartPositionY = 256;
 				goalPositionX = 480;
@@ -383,12 +383,18 @@ class MenuState extends FlxState
 			
 		for (i in movementPool) 
 		{
-			add(i);
-			
-			if (Math.floor(player.x) == i.x && Math.floor(player.y) == i.y) 
+			if (placeAllowed) 
 			{
+				add(i);
+			}
+			
+			if (Math.round(player.x) - 8== i.x - 8 && Math.round(player.y) - 8 == i.y - 8) 
+			{
+				trace("test overlapping");
 				isOverlapping(player, i);
 			}
+			
+			
 			
 			if (FlxG.mouse.x > i.x && FlxG.mouse.x < (i.x +16) && FlxG.mouse.y > i.y && FlxG.mouse.y < (i.y + 16) && FlxG.mouse.justPressed() && placeAllowed) 
 			{
@@ -414,7 +420,7 @@ class MenuState extends FlxState
 	
 	function isOverlapping(playerCollider:FlxObject, movementCollider:MovementControl)
 	{
-
+		trace("overlapping");
 		switch (movementCollider.playingAnim) 
 			{
 				case "up":
@@ -438,6 +444,7 @@ class MenuState extends FlxState
 			}
 	}
 	
+	// Clear Tile selection
 	private function clearSelected()
 	{
 		tileSelected = false;
