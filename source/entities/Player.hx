@@ -10,8 +10,8 @@ import org.flixel.FlxG;
  */
 class Player extends FlxSprite
 {
-	var maxVelocityX = 200;
-	var maxVelocityY = 200;
+	var xPos: Float;
+	var yPos: Float;
 	public function new(x:Float, y:Float, direction:Int) 
 	{
 		super(x, y);

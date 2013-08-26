@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-	<app title="LD27 Warmup" file="LD27 Warmup" main="Main" version="0.0.1" company="Catnip Studios" />
+	<app title="LD27 - MOVEMENT" file="LD27 Warmup" main="Main" version="1.0.0" company="Catnip Studios" />
 	
 	<window width="640" height="480" fps="30" orientation="portrait" resizable="true" if="web" />
 	<window width="640" height="480" fps="30" orientation="landscape" fullscreen="false" hardware="true" vsync="true" unless="web" />

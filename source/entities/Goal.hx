@@ -8,11 +8,8 @@ import org.flixel.FlxSprite;
  */
 class Goal extends FlxSprite
 {
-
-	public function new(x:Int, y:Int) 
+	public function new(x:Float, y:Float) 
 	{
-		var x = x * 16;
-		var y = y * 16;
 		super(x, y, "assets/images/goal.png");
 	}
 	

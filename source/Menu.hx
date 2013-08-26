@@ -1,5 +1,7 @@
 package ;
 
+import entities.ButtonHoverImg;
+import entities.ButtonNormalImg;
 import levels.MapLoader;
 import org.flixel.FlxState;
 import openfl.Assets;
@@ -23,40 +25,52 @@ import org.flixel.plugin.photonstorm.FlxButtonPlus;
  */
 class Menu extends FlxState
 {
-	var map:MapLoader;
 	var play: FlxButtonPlus;
 	var about: FlxButtonPlus;
 	var title: FlxText;
 	
+	var buttonNorm:ButtonNormalImg;
+	var buttonHov:ButtonHoverImg;
+	
+	var horrible: FlxText;
+	
 	override public function create():Void 
 	{
 		// Set a background color
-		FlxG.bgColor = 0xff131c1b;
+		FlxG.bgColor = 0xff91aa9d;
 		// Show the mouse (in case it hasn't been disabled)
 		#if !FLX_NO_MOUSE
 		FlxG.mouse.show();
 		#end
 		
-		map = new MapLoader("assets/levels/menuLevel.oel", "assets/images/frame.png", "frame", 16, 16);
-		add(map);
+		buttonNorm = new ButtonNormalImg();
+		buttonHov = new ButtonHoverImg();
 		
 		title = new FlxText(FlxG.width / 2 - 250, 112, 500, "MOVEMENT", 32);
 		title.setFormat("assets/fonts/orbitron.ttf", 48, 0xffffff, "center");
 		add(title);
 		
 		play = new FlxButtonPlus( 96, 320, goToLevelSelect, null, "Play", 160, 48);
+		play.loadGraphic(buttonNorm, buttonHov);
 		play.textNormal.size = 16;
 		play.textNormal.y += 8;
-		play.textHighlight.y += 8;
+		play.textHighlight.y += 14;
 		play.textHighlight.size = 16;
+		play.textNormal.color = 0xfcfff5;
+		play.textHighlight.color = 0xfcfff5;
 		add(play);
 		
 		about = new FlxButtonPlus( 384, 320, goToAboutScreen, null, "About", 160, 48);
+		about.loadGraphic(buttonNorm, buttonHov);
 		about.textNormal.size = 16;
 		about.textNormal.y += 8;
-		about.textHighlight.y += 8;
+		about.textHighlight.y += 14;
 		about.textHighlight.size = 16;
 		add(about);
+		
+		horrible = new FlxText(0, 225, FlxG.width, "Horrible Broken", 16);
+		horrible.setFormat(null, 16, 0xfcfff5, "center");
+		add(horrible);
 		
 		super.create();
 	}
@@ -68,7 +82,7 @@ class Menu extends FlxState
 	
 	function goToLevelSelect() 
 	{
-		FlxG.switchState(new MenuState());
+		FlxG.switchState(new LevelSelectState());
 	}
 	
 	override public function destroy():Void 

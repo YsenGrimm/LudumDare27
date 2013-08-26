@@ -40,4 +40,9 @@ class Reg
 	 * your state if you want to use the same save flixel uses internally
 	 */
 	static public var save:FlxSave;
+	
+	static public var scoreLevel1:Float;
+	static public var scoreLevel2:Float;
+	static public var scoreLevel3:Float;
+	static public var scoreLevel4:Float;
 }

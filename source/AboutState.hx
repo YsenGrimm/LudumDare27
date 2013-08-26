@@ -23,8 +23,18 @@ import org.flixel.plugin.photonstorm.FlxButtonPlus;
  */
 class AboutState extends FlxState
 {
+	var aboutHuman:FlxText;
+	var aboutCode:FlxText;
+	var back: FlxButtonPlus;
+	
 	override public function create():Void 
 	{
+		aboutHuman = new FlxText(0, 48, FlxG.width, "This game was made during the Ludum Dare 27 Jam. In under 48 houres. \nThis is the first Build without any QC. It might burn your house.");
+		aboutHuman.setFormat(null, 16, 0xfcfff5, "center");
+		add(aboutHuman);
+		aboutCode = new FlxText(0, 225, FlxG.width, "Made by YsenGrimm");
+		aboutCode.setFormat(null, 16, 0xfcfff5, "center");
+		add(aboutCode);
 		super.create();
 	}
 	
